@@ -31,11 +31,8 @@ st.markdown(
 with st.sidebar:
     st.header("⚙️ Configuration")
 
-    api_key = st.text_input(
-        "OpenAI API Key",
-        type="password",
-        help="Enter your OpenAI API key"
-    )
+    # API key is securely stored in Streamlit Secrets
+    api_key = st.secrets["OPENAI_API_KEY"]
 
     selected_model = st.selectbox(
         "Select Model",
@@ -47,7 +44,6 @@ with st.sidebar:
     st.info(
         "Tip: Enter all required skill keywords separated by commas."
     )
-
 
 # ---------------------------------------------------------------------------
 # Pydantic Output Schema
